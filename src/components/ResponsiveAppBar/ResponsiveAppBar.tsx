@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 
@@ -29,7 +29,7 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo always on the left */}
-          <AdbIcon sx={{ display: 'flex', mr: 1 }} />
+          <Brightness4Icon sx={{ display: 'flex', mr: 1 }} />
 
           {/* Title that disappears from 'sm' and smaller screens */}
           <Typography
