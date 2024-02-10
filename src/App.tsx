@@ -1,41 +1,22 @@
-import { Container, Typography, Grid, Card, CardContent } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import MainDisplay from './components/MainDisplay/MainDisplay';
 import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
+import HomePage from './pages/HomePage/HomePage';
+import DetailedForecastPage from './pages/DetailedForecastPage/DetailedForecastPage';
+import WeatherAlertsPage from './pages/WeatherAlertsPage/WeatherAlertsPage';
+
 
 function App() {
   return (
-    <>
+    <Router>
       <ResponsiveAppBar />
-      <Container
-        style={{
-          width: '100%',
-          height: '100vh'
-        }}>
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="center"
-          style={{
-            width: '100%',
-            height: '100%'
-          }}>
-
-          <Card elevation={24}>
-            <CardContent>
-              <Typography
-                variant='h1'
-                component="h1"
-                fontSize='clamp(0.7rem, 7vw, 7rem)'
-                gutterBottom
-              >
-                ReactWeatherApp
-              </Typography>
-
-            </CardContent>
-          </Card>
-        </Grid>
-      </Container>
-    </>
+      <Routes>
+        <Route path="/" element={<MainDisplay content={<HomePage />} />} />
+        <Route path="/DetailedForecastPage" element={<MainDisplay content={<DetailedForecastPage />} />} />
+        <Route path="/WeatherAlertsPage" element={<MainDisplay content={<WeatherAlertsPage />} />} />
+      </Routes>
+    </Router>
   );
 }
 
