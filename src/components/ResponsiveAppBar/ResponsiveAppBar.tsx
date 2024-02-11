@@ -10,8 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-
-const pages = ['Products', 'Pricing', 'Blog'];
+import { Link } from 'react-router-dom';
+import { routes } from '../../routes/routes';
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -32,11 +32,12 @@ function ResponsiveAppBar() {
           <Brightness4Icon sx={{ display: 'flex', mr: 1 }} />
 
           {/* Title that disappears from 'sm' and smaller screens */}
+         
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#responsive-app-bar"
+            href="./"
             sx={{
               mr: 2,
               display: { xs: 'none', sm: 'flex' },
@@ -48,18 +49,22 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
+           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
             ReactWeatherApp
+            </Link>
           </Typography>
 
           {/* Display links for large screens */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {routes.map((route) => (
               <Button
-                key={page}
+                key={route.title}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                component={Link}
+                to={route.path}
               >
-                {page}
+                {route.title}
               </Button>
             ))}
           </Box>
@@ -96,9 +101,9 @@ function ResponsiveAppBar() {
               display: { xs: 'block', md: 'none' },
             }}
           >
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
+            {routes.map((route) => (
+              <MenuItem key={route.title} onClick={handleCloseNavMenu} component={Link} to={route.path}>
+                <Typography textAlign="center">{route.title}</Typography>
               </MenuItem>
             ))}
           </Menu>

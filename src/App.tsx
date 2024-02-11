@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import MainDisplay from './components/MainDisplay/MainDisplay';
 import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
 import HomePage from './pages/HomePage/HomePage';
