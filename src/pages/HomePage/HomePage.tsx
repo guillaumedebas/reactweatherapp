@@ -1,4 +1,5 @@
-import { Card, CardContent, Grid, Typography } from '@mui/material'
+import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import weatherSun from '../../assets/img/weathersun.webp'
 
 function HomePage() {
   return (
@@ -23,6 +24,12 @@ function HomePage() {
               </Typography>
 
             </CardContent>
+              <CardMedia
+          component="img"
+          height="150"
+          image={weatherSun}
+          alt="Weather Image"
+        />
           </Card>
         </Grid>
   )
