@@ -32,7 +32,7 @@ function ResponsiveAppBar() {
           <Brightness4Icon sx={{ display: 'flex', mr: 1 }} />
 
           {/* Title that disappears from 'sm' and smaller screens */}
-         
+     
           <Typography
             variant="h6"
             noWrap
@@ -49,11 +49,11 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          
             ReactWeatherApp
-            </Link>
+         
           </Typography>
-
+   
           {/* Display links for large screens */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {routes.map((route) => (
