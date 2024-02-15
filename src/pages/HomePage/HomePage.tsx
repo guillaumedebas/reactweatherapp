@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { IconButtonProps } from '@mui/material/IconButton';
+import OptionsDialog from '../../components/OptionsDialog/OptionsDialog';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -42,6 +43,7 @@ const ExpandMore = styled(({ expand, ...other }: ExpandMoreProps) => {
 
           <Card elevation={24}>
             <CardContent>
+             <OptionsDialog />
               <Typography
                 variant='h1'
                 component="h1"
