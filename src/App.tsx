@@ -4,6 +4,7 @@ import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
 import HomePage from './pages/HomePage/HomePage';
 import DetailedForecastPage from './pages/DetailedForecastPage/DetailedForecastPage';
 import WeatherAlertsPage from './pages/WeatherAlertsPage/WeatherAlertsPage';
+import ProfileCard from './pages/ProfileCard/ProfileCard';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<MainDisplay content={<HomePage />} />} />
         <Route path="/DetailedForecastPage" element={<MainDisplay content={<DetailedForecastPage />} />} />
         <Route path="/WeatherAlertsPage" element={<MainDisplay content={<WeatherAlertsPage />} />} />
+        <Route path="/profilecard" element={<MainDisplay content={<ProfileCard />} />} />
       </Routes>
     </Router>
   );
