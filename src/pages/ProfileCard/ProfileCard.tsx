@@ -1,72 +1,106 @@
+import React from 'react';
 import { Paper, Typography, Button, Stack, Avatar } from '@mui/material';
 import { GitHub, Twitter, LinkedIn, Instagram } from '@mui/icons-material';
-import img from '../../assets/img/weathersun.webp'
 
+interface ProfileCardProps {
+  imageUrl?: string;
+  name: string;
+  location?: string;
+  description?: string;
+  githubUrl?: string;
+  linkedinUrl?: string;
+  twitterUrl?: string;
+  instagramUrl?: string;
+}
 
-const ProfileCard = () => {
-    return (
-        <Paper elevation={4} sx={{ maxWidth: 345, padding: 6, backgroundColor: '#333', color: '#fff', borderRadius: '10px' }}>
-            <Stack direction="column" spacing={2} alignItems="center">
-                <Avatar
-                    src={img}
-                    alt="Guillaume Debas"
-                    style={{ width: 80, height: 80 }}
-                />
-                <Typography variant="h5" >Guillaume Debas</Typography>
-                <Typography variant="body2" fontWeight='bold' color='#BADA55'>Arras, France</Typography>
-                <Typography variant="body1" fontStyle="italic">
-                    "Front-end developer and more."
-                </Typography>
-                <Button
-                    variant="contained"
-                    startIcon={<GitHub />}
-                    component="a"
-                    href="https://github.com/guillaumedebas/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    fullWidth
-                    sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-                >
-                    GitHub
-                </Button>
-                <Button
-                    variant="contained"
-                    startIcon={<LinkedIn />}
-                    component="a"
-                    href="https://www.linkedin.com/in/guillaume-debas/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-                    fullWidth
-                >
-                    LinkedIn
-                </Button>
-                <Button
-                    variant="contained"
-                    startIcon={<Twitter />}
-                    component="a"
-                    href="https://github.com/guillaumedebas/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    fullWidth
-                    sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-                >
-                    Twitter
-                </Button>
-                <Button
-                    variant="contained"
-                    startIcon={<Instagram />}
-                    component="a"
-                    href="https://github.com/guillaumedebas/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-                    fullWidth>
-                    Instagram
-                </Button>
-            </Stack>
-        </Paper>
-    );
+const ProfileCard: React.FC<ProfileCardProps> = ({
+  imageUrl,
+  name,
+  location,
+  description,
+  githubUrl,
+  linkedinUrl,
+  twitterUrl,
+  instagramUrl
+}) => {
+  return (
+    <Paper elevation={4} sx={{ maxWidth: 345, padding: 6, backgroundColor: '#333', color: '#fff', borderRadius: '10px' }}>
+      <Stack direction="column" spacing={2} alignItems="center">
+        {imageUrl && (
+          <Avatar
+            src={imageUrl}
+            alt={name}
+            sx={{ width: 80, height: 80 }}
+          />
+        )}
+        <Typography variant="h5">{name}</Typography>
+        {location && (
+          <Typography variant="body2" fontWeight='bold' color='#BADA55'>{location}</Typography>
+        )}
+        {description && (
+          <Typography variant="body1" fontStyle="italic">
+            {description}
+          </Typography>
+        )}
+        {githubUrl && (
+          <Button
+            variant="contained"
+            startIcon={<GitHub />}
+            component="a"
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            fullWidth
+            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
+          >
+            GitHub
+          </Button>
+        )}
+        {linkedinUrl && (
+          <Button
+            variant="contained"
+            startIcon={<LinkedIn />}
+            component="a"
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            fullWidth
+            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
+          >
+            LinkedIn
+          </Button>
+        )}
+        {twitterUrl && (
+          <Button
+            variant="contained"
+            startIcon={<Twitter />}
+            component="a"
+            href={twitterUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            fullWidth
+            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
+          >
+            Twitter
+          </Button>
+        )}
+        {instagramUrl && (
+          <Button
+            variant="contained"
+            startIcon={<Instagram />}
+            component="a"
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            fullWidth
+            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
+          >
+            Instagram
+          </Button>
+        )}
+      </Stack>
+    </Paper>
+  );
 };
 
 export default ProfileCard;

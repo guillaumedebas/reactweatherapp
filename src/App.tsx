@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage/HomePage';
 import DetailedForecastPage from './pages/DetailedForecastPage/DetailedForecastPage';
 import WeatherAlertsPage from './pages/WeatherAlertsPage/WeatherAlertsPage';
 import ProfileCard from './pages/ProfileCard/ProfileCard';
+import img from '../src/assets/img/weathersun.webp'
 
 
 function App() {
@@ -15,7 +16,18 @@ function App() {
         <Route path="/" element={<MainDisplay content={<HomePage />} />} />
         <Route path="/DetailedForecastPage" element={<MainDisplay content={<DetailedForecastPage />} />} />
         <Route path="/WeatherAlertsPage" element={<MainDisplay content={<WeatherAlertsPage />} />} />
-        <Route path="/profilecard" element={<MainDisplay content={<ProfileCard />} />} />
+        <Route path="/profilecard" element={<MainDisplay content={
+          <ProfileCard
+            name="Guillaume Debas"
+            imageUrl={img}
+            location="Arras, France"
+            description="Front-end developer and more."
+            githubUrl="https://github.com/guillaumedebas/"
+            linkedinUrl="https://www.linkedin.com/in/guillaume-debas/"
+            twitterUrl="https://twitter.com/guillaumedebas/"
+            instagramUrl="https://www.instagram.com/guillaumedebas/"
+          />
+        } />} />
       </Routes>
     </Router>
   );
