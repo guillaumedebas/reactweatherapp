@@ -1,5 +1,11 @@
 import React from 'react';
-import { Paper, Typography, Button, Stack, Avatar } from '@mui/material';
+import SocialAvatar from './SocialAvatar/SocialAvatar';
+import SocialName from './SocialName/SocialName';
+import SocialLocation from './SocialLocation/SocialLocation';
+import SocialDescription from './SocialDescription/SocialDescription';
+import SocialButton from './SocialButton/SocialButton';
+import SocialPaper from './SocialPaper/SocialPaper';
+import SocialStack from './SocialStack/SocialStack';
 import { GitHub, Twitter, LinkedIn, Instagram } from '@mui/icons-material';
 
 interface ProfileCardProps {
@@ -24,82 +30,18 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   instagramUrl
 }) => {
   return (
-    <Paper elevation={4} sx={{ maxWidth: 345, padding: 6, backgroundColor: '#333', color: '#fff', borderRadius: '10px' }}>
-      <Stack direction="column" spacing={2} alignItems="center">
-        {imageUrl && (
-          <Avatar
-            src={imageUrl}
-            alt={name}
-            sx={{ width: 80, height: 80 }}
-          />
-        )}
-        <Typography variant="h5">{name}</Typography>
-        {location && (
-          <Typography variant="body2" fontWeight='bold' color='#BADA55'>{location}</Typography>
-        )}
-        {description && (
-          <Typography variant="body1" fontStyle="italic">
-            {description}
-          </Typography>
-        )}
-        {githubUrl && (
-          <Button
-            variant="contained"
-            startIcon={<GitHub />}
-            component="a"
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            fullWidth
-            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-          >
-            GitHub
-          </Button>
-        )}
-        {linkedinUrl && (
-          <Button
-            variant="contained"
-            startIcon={<LinkedIn />}
-            component="a"
-            href={linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            fullWidth
-            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-          >
-            LinkedIn
-          </Button>
-        )}
-        {twitterUrl && (
-          <Button
-            variant="contained"
-            startIcon={<Twitter />}
-            component="a"
-            href={twitterUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            fullWidth
-            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-          >
-            Twitter
-          </Button>
-        )}
-        {instagramUrl && (
-          <Button
-            variant="contained"
-            startIcon={<Instagram />}
-            component="a"
-            href={instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            fullWidth
-            sx={{ textTransform: 'none', padding: '10px', backgroundColor: '#444', '&:hover': { backgroundColor: '#555' }, borderRadius: '10px' }}
-          >
-            Instagram
-          </Button>
-        )}
-      </Stack>
-    </Paper>
+    <SocialPaper>
+     <SocialStack>
+        {imageUrl && <SocialAvatar imageUrl={imageUrl} name={name} />}
+        <SocialName>{name}</SocialName>
+        {location && <SocialLocation>{location}</SocialLocation>}
+        {description && <SocialDescription>{description}</SocialDescription>}
+        {githubUrl && <SocialButton url={githubUrl} icon={<GitHub />}>GitHub</SocialButton>}
+        {linkedinUrl && <SocialButton url={linkedinUrl} icon={<LinkedIn />}>LinkedIn</SocialButton>}
+        {twitterUrl && <SocialButton url={twitterUrl} icon={<Twitter />}>Twitter</SocialButton>}
+        {instagramUrl && <SocialButton url={instagramUrl} icon={<Instagram />}>Instagram</SocialButton>}
+      </SocialStack>
+    </SocialPaper>
   );
 };
 
