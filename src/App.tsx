@@ -6,6 +6,7 @@ import DetailedForecastPage from './pages/DetailedForecastPage/DetailedForecastP
 import WeatherAlertsPage from './pages/WeatherAlertsPage/WeatherAlertsPage';
 import ProfileCard from './pages/ProfileCard/ProfileCard';
 import img from '../src/assets/img/weathersun.webp'
+import MediaCard from './components/MediaCard/MediaCard/MediaCard';
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
             twitterUrl="https://twitter.com/guillaumedebas/"
             instagramUrl="https://www.instagram.com/guillaumedebas/"
           />
+        } />} />
+        <Route path="/mediacard" element={<MainDisplay content={
+          <MediaCard />
         } />} />
       </Routes>
     </Router>

@@ -3,4 +3,5 @@ export const routes = [
   { title: 'DetailedForecastPage', path: '/detailedforecastpage' },
   { title: 'WeatherAlertsPage', path: '/weatheralertspage' },
   { title: 'ProfileCard', path: '/profilecard' },
+    { title: 'MediaCard', path: '/mediacard' },
 ];
